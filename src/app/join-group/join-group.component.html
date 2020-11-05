@@ -1,0 +1,14 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="usersList">code du groupe à rejoindre</label>
+    <input type="text" id="usersList" class="form-control" formControlName="usersList">
+  </div>
+
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid">Rejoindre</button>
+</form>
+
+<p>Qui etes vous ?</p>
+<div *ngFor="let duo of listedespotes">
+    <button mat-button (click)="validate(duo)">{{duo[0]}}</button>
+</div>

@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="icon" aria-label="Example icon-button with menu icon">
+      <mat-icon [matMenuTriggerFor]="menu" >menu</mat-icon>
+    </button>
+    
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="Mes groupes" routerLinkActive="active">Mes groupes</button>
+        <button mat-menu-item routerLink="Créer un groupe" routerLinkActive="active">Créer un groupe</button>
+        <button mat-menu-item routerLink="Rejoindre un groupe" routerLinkActive="active">Rejoindre un groupe</button>
+    </mat-menu>
+    <button mat-button routerLink="Acceuil" routerLinkActive="active">Le Noel des potes</button>
+    <button mat-button *ngIf="!isAuth" routerLink="Se connecter" routerLinkActive="active">Se Connecter</button>
+    <button mat-button *ngIf="!isAuth" routerLink="Inscription" routerLinkActive="active">S'inscrire</button>
+    <button mat-button *ngIf="isAuth" (click)="onSignOut()">Se déconnecter</button>
+    <span class="spacer"></span>
+
+  </mat-toolbar>

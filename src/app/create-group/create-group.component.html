@@ -1,0 +1,22 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="usersList">Vos amis</label>
+    <input type="text" id="usersList" class="form-control" formControlName="usersList">
+  </div>
+  <div>
+    <label for="usersList">Votre nom</label>
+    <input type="text" id="nomCreateur" class="form-control" formControlName="nomCreateur">
+  </div>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid">Ajouter mes potes</button>
+</form>
+<button mat-raised-button *ngIf="flagValider" (click)="onSubmit()">Relancer le tirage au sort</button>
+<div *ngIf="flagValider">
+  <div *ngFor="let pote of listeDesPotes">
+    <p>{{pote[0]}} doit donner à {{pote[1]}}</p>
+  </div>
+
+  <button mat-button color="primary" (click)="valider()">Valider</button>
+</div>
+
+<div *ngIf="identifiantDuGroupe != ''">le code de session à partager à vos amis : {{identifiantDuGroupe}}</div>

@@ -1,0 +1,9 @@
+
+<div *ngFor="let groupe of groupes" (click)="goto(groupe[0])">
+    <p>Dans le groupe : {{groupe[0]}} : cadeau à {{groupe[1]}}</p>
+</div>
+<div *ngIf="groupes.length == 0">
+    <p>
+        Personne ne veut de vous
+    </p>
+</div>
