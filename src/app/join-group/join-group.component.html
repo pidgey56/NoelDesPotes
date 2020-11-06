@@ -8,7 +8,15 @@
   <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid">Rejoindre</button>
 </form>
 
-<p>Qui etes vous ?</p>
-<div *ngFor="let duo of listedespotes">
-    <button mat-button (click)="validate(duo)">{{duo[0]}}</button>
+<div *ngIf="listedespotes != null">
+  <div *ngIf="listedespotes.length !=0 ">
+    <p>Qui etes vous ?</p>
+    <div *ngFor="let duo of listedespotes">
+      <button mat-button (click)="validate(duo)">{{duo[0]}}</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="listedespotes == null">
+  <p>Le code que vous avez fournit est invalide</p>
 </div>

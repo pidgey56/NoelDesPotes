@@ -35,6 +35,7 @@ export class JoinGroupComponent implements OnInit {
       this.retour = data.val() ? data.val() : [];
       console.log(this.retour);
       this.listedespotes = this.retour.listedespotes;
+      
     })
     
 
@@ -49,7 +50,12 @@ export class JoinGroupComponent implements OnInit {
       this.userGroups = data.val() ? data.val() : [];
       console.log("userGroupe : ",this.userGroups)
     })
-    this.userGroups.push([this.code,user[1]])
+    this.userGroups.push({
+      GiftTo: user[1],
+      groupeName: this.retour.groupeName,
+      id: this.retour.code,
+    })
+    //this.userGroups.push([this.code,user[1]])
     firebase.default.database().ref(this.user.uid).set(this.userGroups);
     this.router.navigate(['/Mes groupes']);
   }

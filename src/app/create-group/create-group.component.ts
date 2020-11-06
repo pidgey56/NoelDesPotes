@@ -19,6 +19,8 @@ export class CreateGroupComponent implements OnInit {
   listeDesPotes : any;
   identifiantDuGroupe : String = '';
   creatorName : string;
+  groupeName : string;
+  voir = false;
   ngOnInit(): void {
     this.initForm();
   }
@@ -27,6 +29,7 @@ export class CreateGroupComponent implements OnInit {
     this.userForm = this.formBuilder.group({
       usersList: ['', [Validators.required]],
       nomCreateur: ['', [Validators.required]],
+      nomGroupe: ['', [Validators.required]],
     })
   }
   makeId(length: number) {
@@ -46,8 +49,10 @@ export class CreateGroupComponent implements OnInit {
   onSubmit() {
     let users = this.userForm.get('usersList').value;
     this.creatorName = this.userForm.get('nomCreateur').value;
-    
-    const usersList = users.split(' ');
+    this.groupeName = this.userForm.get('nomGroupe').value;
+    let reg = new RegExp("[ ,;/-]+", "g");
+    let usersList = users.split(reg);
+
     usersList.push(this.creatorName);
     const usersList2 = this.distribution(usersList);
     const out = [];
@@ -68,11 +73,13 @@ export class CreateGroupComponent implements OnInit {
 
   valider(){
     console.log(this.listeDesPotes);
-    const id = this.makeId(8);
+    const id = this.makeId(6);
     console.log(id);
     const GroupeDePoteDistribution = {
       code : id,
-      listedespotes : this.listeDesPotes
+      listedespotes : this.listeDesPotes,
+      groupeName : this.groupeName,
+      creator: firebase.default.auth().currentUser.uid,
     }
     this.identifiantDuGroupe = id;
     firebase.default.database().ref(id).set(GroupeDePoteDistribution);
@@ -82,7 +89,11 @@ export class CreateGroupComponent implements OnInit {
       userGroups = data.val() ? data.val() : [];
     })
 
-    userGroups.push([id,this.listeDesPotes[this.listeDesPotes.length-1][1]])
+    userGroups.push({
+      id : id,
+      GiftTo : this.listeDesPotes[this.listeDesPotes.length-1][1],
+      groupeName : this.groupeName
+    });
     firebase.default.database().ref(user.uid).set(userGroups);
     console.log(userGroups);
   }

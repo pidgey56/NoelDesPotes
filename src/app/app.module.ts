@@ -10,10 +10,10 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CreateGroupComponent } from './create-group/create-group.component';
 import { MatButtonModule } from '@angular/material/button';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { GroupViewComponent } from './group-view/group-view.component';
-import {MatIconModule} from '@angular/material/icon';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { Routes, RouterModule } from '@angular/router';
@@ -24,19 +24,19 @@ import { SignupComponent } from './Auth/signup/signup.component'; // CLI imports
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuardService } from './Service/auth-guard.service';
 import { GroupeComponent } from './groupe-view/groupe/groupe.component';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 const routes: Routes = [
-  {path:"Acceuil", component:HomePageComponent},
-  {path:"Créer un groupe", canActivate: [AuthGuardService],component:CreateGroupComponent},
-  {path:"Mes groupes", canActivate: [AuthGuardService], component: GroupViewComponent},
-  {path:"Mes groupes/:id", canActivate: [AuthGuardService], component: GroupeComponent},
-  {path:"Rejoindre un groupe", canActivate: [AuthGuardService], component: JoinGroupComponent},
-  {path:"Se connecter", component: SigninComponent},
-  {path:"Inscription", component: SignupComponent},
-  {path:'', component: HomePageComponent},
-  {path:"**", component:PageNotFoundComponent},
-  
+  { path: "Acceuil", component: HomePageComponent },
+  { path: "Créer un groupe", canActivate: [AuthGuardService], component: CreateGroupComponent },
+  { path: "Mes groupes", canActivate: [AuthGuardService], component: GroupViewComponent },
+  { path: "Mes groupes/:id", canActivate: [AuthGuardService], component: GroupeComponent },
+  { path: "Rejoindre un groupe", canActivate: [AuthGuardService], component: JoinGroupComponent },
+  { path: "Se connecter", component: SigninComponent },
+  { path: "Inscription", component: SignupComponent },
+  { path: '', component: HomePageComponent },
+  { path: "**", component: PageNotFoundComponent },
+
 ]; // sets up routes constant where you define your routes
 
 @NgModule({
@@ -51,7 +51,7 @@ const routes: Routes = [
     SigninComponent,
     SignupComponent,
     GroupeComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -66,6 +66,7 @@ const routes: Routes = [
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     RouterModule.forRoot(routes),
     FormsModule, ReactiveFormsModule,
+    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

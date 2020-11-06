@@ -9,7 +9,7 @@ import * as firebase from "firebase";
 export class AppComponent {
   title = 'Noel Des Potes';
 
-  constructor(){
+  constructor() {
     const firebaseConfig = {
       apiKey: "AIzaSyDaXY5HEDLzM0L4JzTV_QuT0NBaJXhuj8o",
       authDomain: "noel-des-potes.firebaseapp.com",

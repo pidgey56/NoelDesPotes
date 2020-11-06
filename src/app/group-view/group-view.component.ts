@@ -17,11 +17,14 @@ export class GroupViewComponent implements OnInit {
     this.user = firebase.default.auth().currentUser;
     firebase.default.database().ref(this.user.uid).on('value', (data)=>{
       this.groupes = data.val() ? data.val() : [];
+      console.log(this.groupes);
     })
+    
   }
 
 
   goto(id){
     this.router.navigate(['Mes groupes',id]);
   }
+
 }
