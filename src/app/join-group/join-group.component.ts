@@ -35,7 +35,6 @@ export class JoinGroupComponent implements OnInit {
       this.retour = data.val() ? data.val() : [];
       console.log(this.retour);
       this.listedespotes = this.retour.listedespotes;
-      
     })
     
 

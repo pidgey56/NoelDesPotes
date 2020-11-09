@@ -1,0 +1,94 @@
+.container {
+    flex-wrap: wrap;
+}
+
+.container2 {
+    position: absolute;
+    bottom: 0%;
+    left: 0%
+}
+
+#container3{
+    position: absolute;
+    top:0%;
+    right: 0%;
+}
+
+#boule1{
+    position: absolute;
+    top: 7,5%;
+    left: 2%;
+
+
+}
+#boule2{
+    position: absolute;
+    bottom: 5%;
+    left: 10%;
+
+
+}
+
+#boule3{
+    position: absolute;
+    top: 10%;
+    left: 60%;
+    z-index: 0;
+
+}
+
+h2 {
+    position: absolute;
+    top: 50%;
+    font-size: 300%;
+}
+
+#sapin1{
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    z-index: -1;
+
+
+}
+#sapin2{
+    position: absolute;
+    z-index: -2;
+    bottom: 0%;
+    left: 0%;
+}
+
+#sapin3{
+    position: absolute;
+    bottom: 0;
+    left: 60%;
+    z-index: -2;
+}
+
+
+
+
+html, body
+{
+    height: 100%;
+    margin:0;
+    padding:0;
+}
+
+#id1 {
+    position:relative;
+    height: 90%;
+    width:100%;
+    z-index: -5;
+}
+
+#id2 {
+    position:absolute;
+    width: 40%;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    z-index: -8;
+}
