@@ -50,7 +50,10 @@ export class CreateGroupComponent implements OnInit {
     let users = this.userForm.get('usersList').value;
     this.creatorName = this.userForm.get('nomCreateur').value;
     this.groupeName = this.userForm.get('nomGroupe').value;
-    let reg = new RegExp("[ ,;/-]+", "g");
+    let reg = new RegExp("[ ,;/]+", "g");
+    while(users.charAt(users.length -1)==' '){
+      users = users.slice(0,-1);
+    }
     let usersList = users.split(reg);
 
     usersList.push(this.creatorName);
@@ -72,9 +75,7 @@ export class CreateGroupComponent implements OnInit {
   }
 
   valider(){
-    console.log(this.listeDesPotes);
     const id = this.makeId(6);
-    console.log(id);
     const GroupeDePoteDistribution = {
       code : id,
       listedespotes : this.listeDesPotes,
@@ -94,8 +95,9 @@ export class CreateGroupComponent implements OnInit {
       GiftTo : this.listeDesPotes[this.listeDesPotes.length-1][1],
       groupeName : this.groupeName
     });
-    firebase.default.database().ref(user.uid).set(userGroups);
-    console.log(userGroups);
+    firebase.default.database().ref(user.uid).set(userGroups).then(()=>{
+      this.router.navigate(["/Mes groupes"])
+    })
   }
 
   distribution(list1) {

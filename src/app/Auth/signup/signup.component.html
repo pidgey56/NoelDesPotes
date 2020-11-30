@@ -1,21 +1,21 @@
-<h2>Créer un compte</h2>
-<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="email">Adresse mail</label>
-    <input type="text"
-           id="email"
-           class="form-control"
-           formControlName="email">
-  </div>
-  <div>
-    <label placeholder="au moins 6 characteres" for="password">Mot de passe</label>
-    <input type="password"
-           id="password"
-           class="form-control"
-           formControlName="password">
-  </div>
-  <button mat-raised-button color="primary"
-          type="submit"
-          [disabled]="signupForm.invalid">Créer mon compte</button>
-</form>
-<p>{{ errorMessage }}</p>
+<div class="all">
+  <h2 id="inscription">Créer un compte</h2>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <div id="labelEmail">
+      <label for="email">Adresse mail</label>
+      <input type="text" id="email" class="form-control" formControlName="email">
+    </div>
+    <div id="labelPassword">
+      <label placeholder="au moins 6 characteres" for="password">Mot de passe</label>
+      <input type="password" id="password" class="form-control" formControlName="password">
+    </div>
+    <div id="labelPassword">
+      <label placeholder="au moins 6 characteres" for="passwordCheck">Verification du mot de passe</label>
+      <input type="password" id="passwordCheck" class="form-control" formControlName="passwordCheck">
+    </div>
+    <br>
+    <button id="boutonValider" mat-raised-button color="primary" type="submit" [disabled]="signupForm.invalid">Créer mon
+      compte</button>
+  </form>
+  <p style="text-align: center;">{{ errorMessage }}</p>
+</div>

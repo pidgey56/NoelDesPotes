@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import * as firebase from 'firebase';
 import { AuthService } from 'src/app/Service/auth.service';
 
 @Component({
@@ -28,6 +29,7 @@ export class SigninComponent implements OnInit {
       password: ['', [Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]]
     })
   }
+
 
   onSubmit(){
     const email = this.signupForm.get('email').value;

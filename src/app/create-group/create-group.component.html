@@ -1,38 +1,43 @@
-<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="usersList">Nom du groupe de pote</label>
-    <input placeholder="Exemple : Les S" type="text" id="nomGroupe" class="form-control" formControlName="nomGroupe">
-  </div>
-  <div>
-    <label for="usersList">Vos amis</label>
-    <input placeholder="Exemple : Alice Bob Charles" type="text" id="usersList" class="form-control"
-      formControlName="usersList">
-  </div>
-  <div>
-    <label for="usersList">Votre nom</label>
-    <input placeholder="Exemple : Julie" type="text" id="nomCreateur" class="form-control"
-      formControlName="nomCreateur">
-  </div>
+<div id="form-container">
 
-  <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid">Ajouter mes potes</button>
-</form>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div id="label-nom-groupe">
+      <label  for="usersList">Nom du groupe de pote</label>
+      <input placeholder="Exemple : Les S" type="text" id="nomGroupe" class="form-control" formControlName="nomGroupe">
+    </div>
+    <div id="label-liste-amis">
+      <label  for="usersList">Vos amis</label>
+      <input placeholder="Exemple : Alice Bob Charles" type="text" id="usersList" class="form-control"
+        formControlName="usersList">
+    </div>
+    <div id="label-prenom">
+      <label  for="usersList">Votre nom</label>
+      <input placeholder="Exemple : Julie" type="text" id="nomCreateur" class="form-control"
+        formControlName="nomCreateur">
+    </div>
+<br>
+    <button id="boutonValider" mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid">Ajouter mes potes</button>
+  </form>
+</div>
+<br><br>
 
-<div  *ngIf="flagValider">
+<div id="form-container" *ngIf="flagValider">
   <div *ngIf="voir">
-    <button mat-raised-button (click)="voir = false">Cacher</button>
-    <button mat-raised-button (click)="onSubmit()">Relancer le tirage au sort</button>
-    <div *ngFor="let pote of listeDesPotes">
-      <p>{{pote[0]}} doit donner à {{pote[1]}}</p>
+    <button id="boutonValider" mat-raised-button (click)="voir = false">Cacher</button>
+    <br>
+    <button id="boutonValider" mat-raised-button (click)="onSubmit()">Relancer le tirage au sort</button>
+    <br>
+    <div  style="text-align: center;" *ngFor="let pote of listeDesPotes">
+      <div>
+        <h2 style="text-align: center;">{{pote[0]}} doit donner à {{pote[1]}}</h2>
+
+      </div>
     </div>
   </div>
-  
+
   <div>
-    <button mat-raised-button *ngIf="!voir" (click)="voir = true">Voir le tirage</button>
-  
-    <button mat-raised-button color="primary" (click)="valider()">Valider</button>
+    <button id="boutonValider" mat-raised-button *ngIf="!voir" (click)="voir = true">Voir le tirage</button>
+    <br>
+    <button id="boutonValider" mat-raised-button color="primary" (click)="valider()" >Valider</button>
   </div>
 </div>
-
-
-<div *ngIf="identifiantDuGroupe != ''"><h3>Merci à toi d'utiliser le noel des potes.</h3>
-<h3> Le code de session à partager à vos amis : {{identifiantDuGroupe}}</h3></div>

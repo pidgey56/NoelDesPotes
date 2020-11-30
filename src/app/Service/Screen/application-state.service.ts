@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ApplicationStateService {
 
   private isMobileResolution: boolean;
 
   constructor() {
-    if (window.innerWidth < 768) {
+    
+    if (typeof window.orientation !== 'undefined' ) {
       this.isMobileResolution = true;
     } else {
       this.isMobileResolution = false;

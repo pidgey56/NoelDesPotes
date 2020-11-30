@@ -3,10 +3,10 @@
     <mat-icon [matMenuTriggerFor]="menu">menu</mat-icon>
   </button>
 
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item routerLink="Mes groupes" routerLinkActive="active">Mes groupes</button>
-    <button mat-menu-item routerLink="Créer un groupe" routerLinkActive="active">Créer un groupe</button>
-    <button mat-menu-item routerLink="Rejoindre un groupe" routerLinkActive="active">Rejoindre un groupe</button>
+  <mat-menu class="mat-menu-container" #menu="matMenu">
+    <button class="mat-menu-content" mat-menu-item routerLink="Mes groupes" routerLinkActive="active">Mes groupes</button>
+    <button class="mat-menu-content" mat-menu-item routerLink="Créer un groupe" routerLinkActive="active">Créer un groupe</button>
+    <button class="mat-menu-content" mat-menu-item routerLink="Rejoindre un groupe" routerLinkActive="active">Rejoindre un groupe</button>
   </mat-menu>
 
 

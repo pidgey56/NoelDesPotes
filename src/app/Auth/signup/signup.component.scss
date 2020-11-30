@@ -1,0 +1,43 @@
+.all{
+    color: #4c7d4f;
+    position:absolute;
+    max-width: 50%;
+    max-height: 50%;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+}
+
+#inscription{
+    text-align: center;
+    font-size: 2.5em;
+}
+
+#labelEmail{
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+#labelPassword{
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#boutonValider{
+    display: block;
+    margin: auto;
+}
+
+#logo{
+    position:absolute;
+    max-width: 50%;
+    max-height: 50%;
+
+    left:0;
+    right:0;
+    bottom: 5%;
+    margin:auto;
+}

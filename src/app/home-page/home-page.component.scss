@@ -1,46 +1,28 @@
-.container {
-    flex-wrap: wrap;
-}
-
-.container2 {
-    position: absolute;
-    bottom: 0%;
-    left: 0%
-}
-
-#container3{
-    position: absolute;
-    top:0%;
-    right: 0%;
-}
-
 #boule1{
     position: absolute;
     top: 7,5%;
     left: 2%;
-
-
+    max-width: 30%;
+    max-height: 30%;
+    height: auto;
 }
 #boule2{
     position: absolute;
-    bottom: 5%;
-    left: 10%;
-
-
+    bottom: 3%;
+    left: 8%;
+    max-width: 40%;
+    max-height: 40%;
+    height: auto;
 }
 
 #boule3{
     position: absolute;
     top: 10%;
-    left: 60%;
+    right:  8%;
     z-index: 0;
-
-}
-
-h2 {
-    position: absolute;
-    top: 50%;
-    font-size: 300%;
+    height: auto;
+    max-width: 40%;
+    max-height: 40%;
 }
 
 #sapin1{
@@ -48,25 +30,30 @@ h2 {
     top: 5%;
     right: 5%;
     z-index: -1;
-
-
+    height: auto;
+    max-width: 40%;
+    max-height: 40%;
+    
 }
 #sapin2{
     position: absolute;
     z-index: -2;
     bottom: 0%;
     left: 0%;
+    height: auto;
+    max-width: 40%;
+    max-height: 40%;
 }
 
 #sapin3{
     position: absolute;
     bottom: 0;
-    left: 60%;
+    right:  10%;
     z-index: -2;
+    height: auto;
+    max-width: 40%;
+    max-height: 40%;
 }
-
-
-
 
 html, body
 {
@@ -84,11 +71,13 @@ html, body
 
 #id2 {
     position:absolute;
-    width: 40%;
+    max-width: 50%;
+    max-height: 50%;
     top:0;
     left:0;
     right:0;
     bottom:0;
     margin:auto;
     z-index: -8;
+
 }

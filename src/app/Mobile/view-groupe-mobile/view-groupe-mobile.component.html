@@ -1,0 +1,13 @@
+
+<div *ngFor="let groupe of groupes">
+    <h2>Dans le groupe : {{groupe.groupeName}}</h2>
+    <h3> cadeau à {{groupe.GiftTo}}</h3>
+    <h4>Pour partager ce groupe à vos amis le code est : {{groupe.id}}</h4>
+
+</div>
+<div *ngIf="groupes.length == 0">
+    <p>
+        Personne ne veut de vous
+    </p>
+</div>
+

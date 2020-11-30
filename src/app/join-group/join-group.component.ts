@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import * as firebase from 'firebase';
 
 @Component({
@@ -14,12 +15,23 @@ export class JoinGroupComponent implements OnInit {
   code;
   userGroups = [];
   constructor(private router: Router,
-    private formBuilder: FormBuilder,) { }
+    private formBuilder: FormBuilder,
+    private activatedRoute: ActivatedRoute) { }
 
   retour;
   listedespotes = [];
+  flag=false;
   ngOnInit(): void {    this.initForm();
-
+    this.code = this.activatedRoute.snapshot.paramMap.get("id")
+    console.log(this.code);
+    if(this.code != null){
+      this.flag = true;
+      firebase.default.database().ref(this.code).on('value', (data)=>{
+        this.retour = data.val() ? data.val() : [];
+        console.log(this.retour);
+        this.listedespotes = this.retour.listedespotes;
+      })
+    }
   }
 
   initForm() {
@@ -55,8 +67,9 @@ export class JoinGroupComponent implements OnInit {
       id: this.retour.code,
     })
     //this.userGroups.push([this.code,user[1]])
-    firebase.default.database().ref(this.user.uid).set(this.userGroups);
-    this.router.navigate(['/Mes groupes']);
+    firebase.default.database().ref(this.user.uid).set(this.userGroups).then(()=>{
+      this.router.navigate(['/Mes groupes']);
+    });
   }
 
 }

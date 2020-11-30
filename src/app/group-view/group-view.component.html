@@ -1,13 +1,40 @@
+<div class="all">
 
-<div *ngFor="let groupe of groupes">
-    <h2>Dans le groupe : {{groupe.groupeName}}</h2>
-    <h3> cadeau à {{groupe.GiftTo}}</h3>
-    <h4>Pour partager ce groupe à vos amis le code est : {{groupe.id}}</h4>
+    <div *ngFor="let groupe of groupes">
+
+        <div class="div-groupe">
+            <mat-card-content>
+                <h2 class="GroupeName" id="GroupeName">{{groupe.groupeName}}</h2>
+
+                <div *ngIf="!groupe.display">
+                    <img class="div-image" [src]="groupe.imgSrc" (mouseover)="mouseHover(groupe)"
+                        (mouseout)="mouseOut(groupe)" (click)="open(groupe)" *ngIf="!groupe.display">
+
+                </div>
+
+
+                <div *ngIf="groupe.display">
+                    <div><img class="div-image" [src]="groupe.imgSrc2" (mouseover)="mouseHover2(groupe)"
+                            (mouseout)="mouseOut2(groupe)" (click)="open(groupe)"></div>
+
+                    <div class="Texte">
+                        <br><br>
+                        <h3 id="GiftTo">Cadeau à<br><br> {{groupe.GiftTo}}</h3>
+                        <br><br>
+                        <h4 id="id">Pour partager ce groupe à vos amis le code est : {{groupe.id}}</h4>
+                        
+                    </div>
+                    <button mat-raised-button color="accent" (click)="copyfct(groupe.id)">Partager le groupe</button>
+                </div>
+            </mat-card-content>
+        </div>
+
+    </div>
+    <div *ngIf="groupes == null">
+        <img id="broken" src="../../assets/cassé.png">
+        <br><br>
+        <h2 style="text-align: center;">Il vous faut au préalable rejoindre ou créer un groupe pour voir qui vous a été attribué pour faire un Cadeau</h2>
+    </div>
+
 
 </div>
-<div *ngIf="groupes.length == 0">
-    <p>
-        Personne ne veut de vous
-    </p>
-</div>
-

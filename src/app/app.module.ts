@@ -23,22 +23,17 @@ import { SigninComponent } from './Auth/signin/signin.component';
 import { SignupComponent } from './Auth/signup/signup.component'; // CLI imports router
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuardService } from './Service/auth-guard.service';
-import { GroupeComponent } from './groupe-view/groupe/groupe.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
-
-const routes: Routes = [
-  { path: "Acceuil", component: HomePageComponent },
-  { path: "Créer un groupe", canActivate: [AuthGuardService], component: CreateGroupComponent },
-  { path: "Mes groupes", canActivate: [AuthGuardService], component: GroupViewComponent },
-  { path: "Mes groupes/:id", canActivate: [AuthGuardService], component: GroupeComponent },
-  { path: "Rejoindre un groupe", canActivate: [AuthGuardService], component: JoinGroupComponent },
-  { path: "Se connecter", component: SigninComponent },
-  { path: "Inscription", component: SignupComponent },
-  { path: '', component: HomePageComponent },
-  { path: "**", component: PageNotFoundComponent },
-
-]; // sets up routes constant where you define your routes
-
+import { CreateMobileComponent } from './Mobile/create-mobile/create-mobile.component';
+import { ViewGroupeMobileComponent } from './Mobile/view-groupe-mobile/view-groupe-mobile.component';
+import { JoinMobileComponent } from './Mobile/join-mobile/join-mobile.component';
+import { SignInMobileComponent } from './Mobile/sign-in-mobile/sign-in-mobile.component';
+import { SignUpMobileComponent } from './Mobile/sign-up-mobile/sign-up-mobile.component';
+import { NotFoundMobileComponent } from './Mobile/not-found-mobile/not-found-mobile.component';
+import {MatCardModule} from '@angular/material/card';
+import { JoinUrlComponent } from './join-url/join-url.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { PassForgotComponent } from './Auth/pass-forgot/pass-forgot.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +45,14 @@ const routes: Routes = [
     JoinGroupComponent,
     SigninComponent,
     SignupComponent,
-    GroupeComponent,
+    CreateMobileComponent,
+    ViewGroupeMobileComponent,
+    JoinMobileComponent,
+    SignInMobileComponent,
+    SignUpMobileComponent,
+    NotFoundMobileComponent,
+    JoinUrlComponent,
+    PassForgotComponent,
 
   ],
   imports: [
@@ -64,9 +66,11 @@ const routes: Routes = [
     MatIconModule,
     MatMenuModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    RouterModule.forRoot(routes),
+    RouterModule,
     FormsModule, ReactiveFormsModule,
     MatFormFieldModule,
+    MatCardModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

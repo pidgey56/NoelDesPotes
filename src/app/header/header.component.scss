@@ -1,3 +1,15 @@
 .example-spacer {
     flex: 1 1 auto;
-  }
+}
+
+.mat-menu-content {
+    background-color: #4c7d4f;
+    color:#f3cfb1;
+}
+.mat-menu-content:hover{
+  background-color: #5c8d4f;
+}
+
+::ng-deep .mat-menu-container{
+  background-color: #4c7d4f;
+}

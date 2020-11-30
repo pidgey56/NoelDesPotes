@@ -1,0 +1,38 @@
+#form-container{
+    color: #4c7d4f;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top:3%;
+}
+
+#label-nom-groupe{
+    font-size: 1em;
+    text-align: center;
+}
+
+#label-prenom{
+    text-align: center;
+}
+
+#label-liste-amis{
+    text-align: center;
+}
+
+#boutonValider{
+    display: block;
+    margin: auto;
+}
+
+#show-name{
+    margin-bottom: 2%;
+    margin-top: 2%;
+    max-width: 94%;
+    height: 5em;
+    left: 3%;
+    background-color: #4c7d4f;
+    color: #f3cfb1;
+    border: dashed #ae4238 0.75em;
+    border-radius: 1.5em;
+    display: flex;
+    
+}

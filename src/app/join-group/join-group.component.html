@@ -1,22 +1,29 @@
-<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="usersList">code du groupe à rejoindre</label>
-    <input type="text" id="usersList" class="form-control" formControlName="usersList">
-  </div>
 
-
-  <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid">Rejoindre</button>
-</form>
-
-<div *ngIf="listedespotes != null">
-  <div *ngIf="listedespotes.length !=0 ">
-    <p>Qui etes vous ?</p>
-    <div *ngFor="let duo of listedespotes">
-      <button mat-button (click)="validate(duo)">{{duo[0]}}</button>
+  <div class="all">
+    <DIV *ngIf="!flag">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label id="labelCode" for="usersList">Entrez ci dessous le code du groupe à rejoindre</label>
+        <input type="text" id="usersList" class="form-control" formControlName="usersList">
+      </div>
+    
+    <br>
+      <button id="boutonValider" mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid">Rejoindre</button>
+    </form>
+  </DIV>
+    <div *ngIf="listedespotes != null">
+      <div id="liste" *ngIf="listedespotes.length !=0 ">
+        <br>
+        <p style="font-size: 1.5em;font-weight: 900;">Qui etes vous ?</p>
+        <div id="person" (click)="validate(duo)"*ngFor="let duo of listedespotes">
+          <button id="button" mat-button (click)="validate(duo)">{{duo[0]}}</button>
+        </div>
+      </div>
+    </div>
+    
+    <div *ngIf="listedespotes == null">
+      <p style="text-align: center;">Le code que vous avez fournit est invalide</p>
     </div>
   </div>
-</div>
-
-<div *ngIf="listedespotes == null">
-  <p>Le code que vous avez fournit est invalide</p>
-</div>
+  
+  

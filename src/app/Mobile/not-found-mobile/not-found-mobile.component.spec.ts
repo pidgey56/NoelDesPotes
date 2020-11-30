@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GroupeComponent } from './groupe.component';
+import { NotFoundMobileComponent } from './not-found-mobile.component';
 
-describe('GroupeComponent', () => {
-  let component: GroupeComponent;
-  let fixture: ComponentFixture<GroupeComponent>;
+describe('NotFoundMobileComponent', () => {
+  let component: NotFoundMobileComponent;
+  let fixture: ComponentFixture<NotFoundMobileComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GroupeComponent ]
+      declarations: [ NotFoundMobileComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GroupeComponent);
+    fixture = TestBed.createComponent(NotFoundMobileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

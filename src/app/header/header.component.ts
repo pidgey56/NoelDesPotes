@@ -24,6 +24,9 @@ export class HeaderComponent implements OnInit {
     )
   }
 
+  installApp(){
+    
+  }
   onSignOut(){
     this.authService.signOutUser();
   }

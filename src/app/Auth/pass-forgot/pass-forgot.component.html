@@ -1,0 +1,13 @@
+<div class="all">
+    <form [formGroup]="signupForm" (ngSubmit)="resetPassword()">
+        <div id="labelEmail">
+            <label for="email">Adresse mail</label>
+            <input type="text" id="email" class="form-control" formControlName="email">
+        </div>
+    
+        <br>
+        <button id="boutonValider" mat-raised-button color="primary" type="submit"
+            [disabled]="signupForm.invalid">Reinitialiser mon mot de passe</button>
+    </form>
+    <p>{{errorMessage}}</p>
+</div>

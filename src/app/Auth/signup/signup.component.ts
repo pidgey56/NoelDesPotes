@@ -14,32 +14,39 @@ export class SignupComponent implements OnInit {
   errorMessage: string;
   constructor(
     private formBuilder: FormBuilder,
-    private authService : AuthService,
-    private router : Router,
+    private authService: AuthService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
     this.initForm();
   }
 
-  initForm(){
+  initForm() {
     this.signupForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]]
+      password: ['', [Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]],
+      passwordCheck: ['', [Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]]
     })
   }
 
-  onSubmit(){
+  onSubmit() {
     const email = this.signupForm.get('email').value;
     const password = this.signupForm.get('password').value;
+    const passwordCheck = this.signupForm.get('passwordCheck').value;
 
-    this.authService.createNewUser(email,password).then(
-      () => {
-        this.router.navigate(['/Acceuil']);
-      },
-      (error) => {
-        this.errorMessage = error;
-      }
-    )
+    if(password != passwordCheck){
+      this.errorMessage = "Les mots de passes ne sont pas les mêmes";
+    }
+    else{
+      this.authService.createNewUser(email, password).then(
+        () => {
+          this.router.navigate(['/Acceuil']);
+        },
+        (error) => {
+          this.errorMessage = error;
+        }
+      )
+    }
   }
 }
