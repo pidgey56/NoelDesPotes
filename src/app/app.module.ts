@@ -34,6 +34,7 @@ import {MatCardModule} from '@angular/material/card';
 import { JoinUrlComponent } from './join-url/join-url.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { PassForgotComponent } from './Auth/pass-forgot/pass-forgot.component';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +54,7 @@ import { PassForgotComponent } from './Auth/pass-forgot/pass-forgot.component';
     NotFoundMobileComponent,
     JoinUrlComponent,
     PassForgotComponent,
-
+    
   ],
   imports: [
     BrowserModule,
